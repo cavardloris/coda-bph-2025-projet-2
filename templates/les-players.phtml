@@ -1,0 +1,24 @@
+<main>
+    <h2>LES PLAYERS DE LA LEAGUE</h2>
+    <div class="grille">
+        <?php foreach ($players as $player) : ?>
+            <div class="carte">
+                <img src="<?= $player['url'] ?>" alt="<?= $player['alt'] ?>">
+                
+                <div class="nom_joueur">
+                    <?= $player['nickname'] ?>
+                </div>
+                <div class="nom_equipe">
+                    <p>
+                        <?= $player['name'] ?>
+                    </p>
+                </div>
+                <div class="pres_joueur">
+                    <a href="player.php?id=<?= $player['id'] ?>">
+                        Découvrez <?= $player['nickname'] ?>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</main>
