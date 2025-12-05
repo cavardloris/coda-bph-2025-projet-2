@@ -1,0 +1,50 @@
+:root {
+    --darkerGrey: #0b132b;
+    --darkGrey: #1c2541;
+    --yellow: #d4b52f;
+    --green: #509d77;
+    --pink: #d97ab5;
+    --blue: #45a0ec;
+    --purple: #9e87cb;
+    --red: #d66f75;
+    --grey: #83a1bb;
+    --white: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: var(--darkGrey);
+    width: 100vw;
+    height: auto;
+}
+
+nav h3{
+    color: var(--white);
+    font-family: 'Roboto';
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+nav a{
+    text-decoration: none;
+    color: var(--white);
+}
+
+nav li {
+    color: var(--white);
+    list-style-type: none;
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    margin-bottom: 10px;
+}
