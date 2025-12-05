@@ -48,3 +48,33 @@ nav li {
     font-size: 16px;
     margin-bottom: 10px;
 }
+
+.intro_home {
+    width: 100%;
+    height: 300px;
+    opacity: 4;
+    background-image: url('../images/home_background_league.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.intro_home h2{
+    font-family: 'Roboto';
+    font-size: 25px;
+    color: var(--white);
+    text-align: center;
+    padding-top: 50px;
+}
+
+.intro_home p{
+    font-family: 'Roboto';
+    color: var(--white);
+    text-align: center;
+    padding-top: 100px;
+}
+
+.team-a-la-une{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
