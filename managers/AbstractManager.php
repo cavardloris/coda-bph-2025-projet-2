@@ -2,7 +2,7 @@
 
 abstract class AbstractManager
 {
-    private PDO $db;
+    protected PDO $db;
 
     public function __construct()
     {
