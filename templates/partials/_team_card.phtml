@@ -1,0 +1,21 @@
+<div class="team-card">
+    
+    <div class="card-image">
+        <img src="<?= $team['url'] ?>" alt="<?= $team['alt'] ?>">
+    </div>
+
+    <h3 class="card-title">
+        <?= $team['name'] ?>
+    </h3>
+
+    <div class="card-desc">
+        <p><?= $team['description'] ?></p>
+    </div>
+
+    <div class="card-action">
+        <a href="index.php?route=team&id=<?= $team['id'] ?>" class="btn-discover">
+            DÉCOUVREZ <?= strtoupper($team['name']) ?>
+        </a>
+    </div>
+
+</div>

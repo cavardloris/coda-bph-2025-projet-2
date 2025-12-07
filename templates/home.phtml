@@ -1,16 +1,68 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/PHP/coda-bph-2025-projet-2/assets/styles/style.css">
-</head>
-<body>
-    <header>
-        <?php require "templates/partials/_header.phtml"; ?>
-    </header>
-</body>
-</html>
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1 class="main-title">TOUT SUR LA LEAGUE</h1>
+        <p class="subtitle">Les players, les teams et l'actu des matchs</p>
+    </div>
+</section>
+
+<section class="featured-team">
+    <h2 class="section-title">LA TEAM À LA UNE</h2>
+
+    <div class="team-highlight">
+        <h3 class="team-name">Angry Owls</h3>
+        <p class="team-desc">Les players</p>
+
+        <div class="team-members">
+            <?php foreach ($angryOwlsPlayers as $player) : ?>
+                <div class="member-card">
+                    <a href="index.php?route=player&id=<?= $player['id'] ?>">
+                        <img src="<?= $player['url'] ?>" alt="<?= $player['alt'] ?>">
+                    </a>
+
+                    <h4 class="member-name"><?= $player['nickname'] ?></h4>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<section class="featured-players">
+    <h2 class="section-title">LES PLAYERS À LA UNE</h2>
+
+    <div class="players-grid">
+        <?php foreach ($featuredPlayers as $player) : ?>
+            <div class="player-card">
+                <a href="index.php?route=player&id=<?= $player['id'] ?>">
+                    <img src="<?= $player['url'] ?>" alt="<?= $player['alt'] ?>">
+                </a>
+
+                <h3 class="player-name"><?= $player['nickname'] ?></h3>
+                <p class="player-team"><?= $player['team_name'] ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<section class="latest-match">
+    <h2 class="section-title">LE DERNIER MATCH</h2>
+
+    <?php if ($lastMatch) : ?>
+        <div class="match-highlight">
+            <h3 class="match-name"><?= $lastMatch['name'] ?></h3>
+
+            <p class="match-date"><?= date('d/m/Y', strtotime($lastMatch['date'])) ?></p>
+
+            <div class="versus-display">
+                <div class="team-logo">
+                    <img src="<?= $lastMatch['t1_photo'] ?>" alt="<?= $lastMatch['t1_alt'] ?>">
+                </div>
+
+                <div class="team-logo">
+                    <img src="<?= $lastMatch['t2_photo'] ?>" alt="<?= $lastMatch['t2_alt'] ?>">
+                </div>
+            </div>
+        </div>
+    <?php else : ?>
+        <p>Aucun match joué récemment.</p>
+    <?php endif; ?>
+</section>

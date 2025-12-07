@@ -1,0 +1,27 @@
+<div class="match-card">
+    
+    <h3 class="match-title">
+        <?= $game['name'] ?>
+    </h3>
+
+    <h4 class="match-date">
+        <?= date('d/m/Y', strtotime($game['date'])) ?>
+    </h4>
+
+    <div class="vs_games">
+        <div class="team-logo">
+            <img src="<?= $game['t1_photo'] ?>" alt="<?= $game['t1_alt'] ?>">
+        </div>
+
+        <div class="team-logo">
+            <img src="<?= $game['t2_photo'] ?>" alt="<?= $game['t2_alt'] ?>">
+        </div>
+    </div>
+
+    <div class="match-action">
+        <a href="index.php?route=match&id=<?= $game['id'] ?>" class="btn-details">
+            DÉTAILS DU MATCH
+        </a>
+    </div>
+
+</div>

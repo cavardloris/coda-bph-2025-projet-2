@@ -1,0 +1,52 @@
+<main>
+    <h2 class="main-title title-blue"><?= $game['name'] ?></h2>
+
+    <h4 class="match-date">
+        <?= date('d/m/Y', strtotime($game['date'])) ?>
+    </h4>
+
+    <div class="versus-display" style="margin-bottom: 60px;">
+
+        <?php
+        // On vérifie si l'équipe 1 est le vainqueur
+        // Si oui, on prépare la classe CSS 'winner-border', sinon rien
+        $classT1 = ($game['winner'] == $game['team_1']) ? 'winner-border' : '';
+
+        // On fait pareil pour l'équipe 2
+        $classT2 = ($game['winner'] == $game['team_2']) ? 'winner-border' : '';
+        ?>
+
+        <div class="team-logo">
+            <img src="<?= $game['t1_photo'] ?>" alt="<?= $game['t1_alt'] ?>" class="<?= $classT1 ?>">
+        </div>
+
+        <div class="team-logo">
+            <img src="<?= $game['t2_photo'] ?>" alt="<?= $game['t2_alt'] ?>" class="<?= $classT2 ?>">
+        </div>
+
+    </div>
+
+    <section class="match-stats">
+        <h2 class="section-title title-purple">LES PERFORMANCES</h2>
+
+        <table class="stats-table">
+            <tr>
+                <th>PLAYER</th>
+                <th>TEAM</th>
+                <th>POINTS</th>
+                <th>ASSISTS</th>
+            </tr>
+
+            <?php foreach ($stats as $stat) : ?>
+                <tr>
+                    <td class="col-player"><?= $stat['nickname'] ?></td>
+
+                    <td class="col-team"><?= $stat['team_name'] ?></td>
+
+                    <td><?= $stat['points'] ?></td>
+                    <td><?= $stat['assists'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </section>
+</main>

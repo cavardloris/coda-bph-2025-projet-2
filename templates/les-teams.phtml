@@ -1,0 +1,9 @@
+<main>
+    <h2 class="main-title">LES TEAMS DE LA LEAGUE</h2>
+
+    <div class="teams-grid">
+        <?php foreach ($teams as $team) : ?>
+            <?php require "partials/_team_card.phtml"; ?>
+        <?php endforeach; ?>
+    </div>
+</main>

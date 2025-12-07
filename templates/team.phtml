@@ -1,5 +1,6 @@
 <main>
-    <h2>LES PLAYERS DE LA LEAGUE</h2>
+    <h2 class="main-title title-pink"><?= $team['name'] ?></h2>
+
     <div class="grille">
         <?php foreach ($players as $player) : ?>
             <?php require "partials/_player_card.phtml"; ?>

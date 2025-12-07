@@ -1,0 +1,19 @@
+<div class="carte">
+    <img src="<?= $player['url'] ?>" alt="<?= $player['alt'] ?>">
+    
+    <div class="nom_joueur">
+        <?= $player['nickname'] ?>
+    </div>
+
+    <?php if (isset($player['name'])) : ?>
+        <div class="nom_equipe">
+            <p><?= $player['name'] ?></p>
+        </div>
+    <?php endif; ?>
+
+    <div class="pres_joueur">
+        <a href="index.php?route=player&id=<?= $player['id'] ?>">
+            DÉCOUVREZ <?= $player['nickname'] ?>
+        </a>
+    </div>
+</div>

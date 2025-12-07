@@ -1,0 +1,54 @@
+<main>
+    <h2 class="main-title"><?= $player['nickname'] ?></h2>
+
+    <div class="player-portrait-big">
+        <img src="<?= $player['url'] ?>" alt="<?= $player['alt'] ?>">
+    </div>
+
+    <section class="player-stats">
+        <h2 class="section-title">SES PERFORMANCES</h2>
+        <table class="stats-table">
+             <tr>
+                <th>TEAM ADVERSE</th>
+                <th>POINTS</th>
+                <th>ASSISTS</th>
+                <th>VICTOIRE ?</th>
+            </tr>
+            <?php foreach ($performances as $perf) : 
+                $adverseName = ($player['team'] == $perf['team_1']) ? $perf['t2_name'] : $perf['t1_name'];
+                $isVictory = ($perf['winner'] == $player['team']);
+            ?>
+            <tr>
+                <td><?= $adverseName ?></td>
+                <td><?= $perf['points'] ?></td>
+                <td><?= $perf['assists'] ?></td>
+                <td class="<?= $isVictory ? 'win' : 'loose' ?>">
+                    <?= $isVictory ? 'Oui' : 'Non' ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </section>
+
+    <section class="player-teammates">
+        <h2 class="section-title title-yellow">
+            <a href="index.php?route=team&id=<?= $player['team'] ?>" style="text-decoration:none; color:inherit;">
+                SA TEAM
+            </a>
+        </h2>
+
+        <div class="grille">
+            <?php foreach ($teammates as $teammate) : 
+                // On cache le joueur sur lequel on est déjà
+                if ($teammate['id'] === $player['id']) continue; 
+                
+                // IMPORTANT : Le partial attend une variable $player, mais ici la boucle donne $teammate.
+                // On crée une variable temporaire $player pour que le partial fonctionne.
+                $player = $teammate; 
+            ?>
+                <?php require "partials/_player_card.phtml"; ?>
+                
+            <?php endforeach; ?>
+        </div>
+    </section>
+</main>
